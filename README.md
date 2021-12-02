@@ -12,7 +12,7 @@ Sistema com propósito de gerenciar personagens de DnD, criado para trabalho na 
 [Figma](https://www.figma.com/file/3sevFLC4XVbLsrV3H7JayY/INE5646---%C3%A9obraia?node-id=41%3A147)  
 
 ### Solução Geral
-O sistema proposto tem como objetivo ser um repositório para “personagens” de DnD (Dungeon and Dragons), onde o usuário fará upload de um arquivo padronizado no formato PDF com as informações de seu personagem, essa informação será modelada como um objeto do sistema e ficará atrelada ao usuário, formando assim um compêndio de personagens do mesmo.  
+O sistema proposto tem como objetivo ser um repositório para “personagens” de DnD (Dungeons and Dragons), onde o usuário fará upload de um arquivo padronizado no formato PDF com as informações de seu personagem, essa informação será modelada como um objeto do sistema e ficará atrelada ao usuário, formando assim um compêndio de personagens do mesmo.  
 O sistema pode ser escalado para:  
 Um compêndio público de personagens, onde todos os usuários poderão ver os personagens de outros usuários;  
 Uma ferramenta para ser usada durante o jogo, facilitando algumas ações no mesmo, como por exemplo o jogar de um dado, a “tradução” do número do dado em uma ação, entre outras.  
