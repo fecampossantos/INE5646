@@ -1,3 +1,3 @@
-import Login from '../components/Login'
+import Home from "../components/Home";
 
-export default Login;
+export default Home;
