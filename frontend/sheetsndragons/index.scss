@@ -1,0 +1,101 @@
+@import './reset.css';
+
+$breakpoint-sm: 600px;
+$breakpoint-md: 960px;
+$breakpoint-lg: 1280px;
+$breakpoint-xl: 1920px;
+
+html,
+body {
+  background: var(--background);
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-size: 16px;
+  @media (max-width: $breakpoint-sm) {
+    font-size: 14px;
+  }
+}
+
+::selection {
+  color: #fff;
+  background: #000000ab;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  line-height: 1.3em;
+  letter-spacing: 0.04rem;
+}
+
+// --primary-color: ${theme.palette.primary.main};
+
+// .flatpickr-current-month .flatpickr-monthDropdown-months,
+// .flatpickr-months .flatpickr-month,
+// .flatpickr-weekdays,
+// span.flatpickr-weekday {
+//   color: white;
+//   background-color: @primary-color !important;
+// }
+
+.flatpickr-months .flatpickr-prev-month:hover svg,
+.flatpickr-months .flatpickr-next-month:hover svg {
+  fill: white;
+}
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange,
+.flatpickr-day.selected.inRange,
+.flatpickr-day.startRange.inRange,
+.flatpickr-day.endRange.inRange,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange:focus,
+.flatpickr-day.endRange:focus,
+.flatpickr-day.selected:hover,
+.flatpickr-day.startRange:hover,
+.flatpickr-day.endRange:hover,
+.flatpickr-day.selected.prevMonthDay,
+.flatpickr-day.startRange.prevMonthDay,
+.flatpickr-day.endRange.prevMonthDay,
+.flatpickr-day.selected.nextMonthDay,
+.flatpickr-day.startRange.nextMonthDay,
+.flatpickr-day.endRange.nextMonthDay {
+  background-color: var(--primary) !important;
+  box-shadow: none;
+  color: #fff;
+  border: none;
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+jdiv {
+  z-index: 99999 !important;
+}
+
+.map-container {
+  height: 400px;
+}

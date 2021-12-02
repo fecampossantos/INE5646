@@ -20,13 +20,13 @@ const Input = styled.input`
   }
 `
 
-const EmailInput = ({ id, label, onChange, width }) => {
+const TextInput = ({ id, label, onChange, width }) => {
   return (
     <Wrapper width={width}>
       <label htmlFor={id}>{label}</label><br />
-      <Input type="email" id={id} name={id} onChange={onChange}/>
+      <Input type="text" id={id} name={id} onChange={onChange}/>
     </Wrapper>
   )
 }
 
-export default EmailInput;
+export default TextInput;
