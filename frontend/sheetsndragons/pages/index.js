@@ -1,3 +1,3 @@
-import Home from "../components/Home";
+import Main from "../components/Main";
 
-export default Home;
+export default Main;

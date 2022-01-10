@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import Text from "components/Text";
+import Text from "components/Text"
 
-const Home = () => {
-  return(
-    <Text>yey</Text>
+const Home = ({ user }) => {
+
+  return (
+    <Text>{user.name}</Text>
   )
 }
 

@@ -3,7 +3,7 @@
 
 // following Material UI React standard:
 // https://material-ui.com/customization/default-theme/
-export default {
+const theme = {
   palette: {
     primary: {
       light: '#C1DBB3',
@@ -65,3 +65,6 @@ export default {
     borderRadius: 4,
   },
 };
+
+
+export default theme;
