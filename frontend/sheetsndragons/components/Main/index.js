@@ -65,7 +65,7 @@ const Main = () => {
         <img src="logo.png" alt="logo" />
       </Logo>
       <WelcomeText>
-        Cansado/a de ter que levar um monte de papel na sua DnD Night? Seja bem-vindo/a à Sheets'n Dragons!
+        Cansado/a de ter que levar um monte de papel na sua DnD Night? Seja bem-vindo/a à Sheets n Dragons!
       </WelcomeText>
 
       <ButtonGroup>
