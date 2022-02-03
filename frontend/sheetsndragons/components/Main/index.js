@@ -6,7 +6,12 @@ import Text from "components/Text";
 import Button from "components/Button";
 
 const Container = styled.div`
+  height: 100vh;
   padding: 100px;
+
+  @media(max-width: 600px) {
+    padding: 50px 20px 0 20px;
+  }
 `
 
 const Logo = styled.div`
@@ -20,12 +25,23 @@ const Logo = styled.div`
   img {
     width: auto;
     height: 100%;
+
+    @media(max-width: 600px) {
+      width: 90%;
+    height: auto;
   }
+  }
+
+  
 `
 
 const WelcomeText = styled.section`
   display: flex;
   justify-content: center;
+
+  @media(max-width: 600px) {
+    width: 90%;
+  }
 `
 
 const ButtonGroup = styled.section`
@@ -33,6 +49,10 @@ const ButtonGroup = styled.section`
   flex-direction: row;
   margin: 10px;
   padding: 5px;
+
+  @media(max-width: 600px) {
+    flex-direction: column;
+  }
 `
 
 const ExplanationSection = styled.section`

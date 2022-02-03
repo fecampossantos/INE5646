@@ -11,27 +11,44 @@ const FlexContainer = styled.section`
 
   display: flex;
   background-color: #efdec6;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 `;
 
 const ImageContainer = styled.div`
   flex: 0.4;
   background-color: grey;
-
   img {
     height: 100vh;
     width: 100%;
+    object-fit: cover;
+
+    @media (max-width: 700px) {
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 700px) {
+    order: 1;
+    max-height: 40vh;
   }
 `;
 
 const LoginContainer = styled.div`
   flex: 0.6;
   padding: 20px;
-  heigth: 100vh;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 700px) {
+    order: 2;
+  }
 `;
 
 const Login = () => {

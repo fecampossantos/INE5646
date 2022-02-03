@@ -12,10 +12,6 @@ const StyledButton = styled.button`
 
   transition: 0.2s;
 
-  // :hover{
-  //   transform: translate(-2px, -2px);
-  // }
-
   ${props => {
     if (props.backgroundColor) {
       if (props.backgroundColor == "primary") return `background-color: #E4A76E; color: white;`;
