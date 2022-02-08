@@ -42,3 +42,22 @@ _em breve_
 ### Link para visualização
 _em breve_
 
+# Como rodar o backend
+
+### Criando um ambiente virtual
+No diretório base do projeto crie um ambiente virtual pelo terminal com o seguinte:
+```
+python3 -m venv venv
+```
+Após criado, para ativá-lo no linux:
+```
+source env/bin/activate
+```
+Para ativá-lo no windows:
+```
+env\Scripts\activate
+```
+Com o ambiente virtual ativado instale as dependências do projeto:
+```
+pip3 install -r requirements.txt
+```
