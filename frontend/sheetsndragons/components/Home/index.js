@@ -1,11 +1,11 @@
 import React from "react";
-import styled from "styled-components";
 import NavBar from "../NavBar";
-import Text from "components/Text";
 
 import SafeArea from '../SafeArea'
 import RegisterCharacter from './RegisterCharacter'
 import CharacterList from './CharacterList'
+
+import { charactersList } from "../../helpes/mockData";
 
 const Home = ({ user }) => {
   return (
@@ -15,7 +15,7 @@ const Home = ({ user }) => {
         <RegisterCharacter />
       </SafeArea>
       <SafeArea>
-        <CharacterList />
+        <CharacterList charList={charactersList}/>
       </SafeArea>
     </>
   );

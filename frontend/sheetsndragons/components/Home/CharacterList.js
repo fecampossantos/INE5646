@@ -25,6 +25,7 @@ const Body = styled.div`
   height: 100%;
 
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   padding: 15px 20px;
 
@@ -33,14 +34,7 @@ const Body = styled.div`
   }
 `;
 
-const CharacterList = () => {
-  const charList = [
-    {
-      name: "Char 1",
-      species: "Human",
-    },
-  ];
-
+const CharacterList = ({ charList }) => {
   return (
     <Container>
       <Header>Personagens Cadastrados</Header>

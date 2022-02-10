@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
+import router, { useRouter } from 'next/router'
+import Link from 'next/link'
+
 const Bar = styled.div`
   z-index: 999;
   position: sticky;
@@ -20,8 +23,24 @@ const Bar = styled.div`
   }
 `;
 
+const NavItem = styled.div`
+
+`
+
 const NavBar = () => {
-  return <Bar>itens da navbar</Bar>;
+
+  const handleLogout = () => {
+    router.push('/login')
+  }
+  return(
+  <Bar>
+  <NavItem>
+    <Link href={'/login'} passHref>
+      <a>logout</a>
+    </Link>
+  </NavItem>
+  </Bar>
+  );
 };
 
 export default NavBar;
