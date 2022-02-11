@@ -61,3 +61,12 @@ Com o ambiente virtual ativado instale as dependências do projeto:
 ```
 pip3 install -r requirements.txt
 ```
+Após ativar o ambiente crie a base de dados com:
+```
+python3 manage.py migrate
+```
+Por fim, para iniciar o servidor execute:
+```
+python3 manage.py runserver
+```
+O backend estará disponível em [http://localhost:8000](http://localhost:8000) :)
