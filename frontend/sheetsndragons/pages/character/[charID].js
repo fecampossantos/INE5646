@@ -12,9 +12,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(ctx) {
   const { charID } = ctx.params;
-  console.log(charactersList);
   let char = charactersList.filter((c) => c.id == charID);
-  console.log(char);
 
   if (char.length > 0) char = char[0];
   return {

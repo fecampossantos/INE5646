@@ -28,6 +28,10 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media(max-width: 800px){
+    width: 90%;
+  }
 `;
 
 const Header = styled.div`
@@ -47,6 +51,7 @@ const Body = styled.div`
   align-items: center;
   padding: 10px;
   width: 100%;
+  flex-wrap: wrap;
 `;
 
 const NameContainer = styled.div``;
@@ -86,6 +91,15 @@ const EditButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 5px;
+`
+
+const SpecContainer = styled.div`
+  text-align: center;
+  margin: 5px 0;
+  width: 24%;
+  @media(max-width: 800px){
+    width: 48%;
+  }
 `
 
 const CharacterPage = ({ character }) => {
@@ -130,11 +144,11 @@ const CharacterPage = ({ character }) => {
         </Header>
         <Body>
           {character.specs.map((s) => (
-            <div key={s.name}>
+            <SpecContainer key={s.name}>
               <Text>
                 {s.name}: {s.value}
               </Text>
-            </div>
+            </SpecContainer>
           ))}
         </Body>
       </Card>

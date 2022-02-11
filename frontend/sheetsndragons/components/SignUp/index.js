@@ -7,6 +7,8 @@ import Button from "components/Button";
 import router from "next/router";
 import Text from "../Text";
 
+import { validateEmail } from "../../helpes/utils";
+
 const FlexContainer = styled.section`
   width: 100vw;
   height: 100vh;
@@ -60,7 +62,22 @@ const SignUp = () => {
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+
   const handleLogin = () => {
+
+    if(!nome || !email || !password || !passConfirm) {
+      setHasError(true);
+      setErrorMessage("Nenhum campo pode estar vazio");
+      return
+    }
+    
+    let validEmail = validateEmail(email);
+
+    if (!validEmail) {
+      setHasError(true);
+      setErrorMessage("O email nao esta no formato certo");
+      return
+    }
     console.log(passConfirm);
     if (password != passConfirm) {
       setHasError(true);
