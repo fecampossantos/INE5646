@@ -12,10 +12,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(ctx) {
   const { charID } = ctx.params;
-  let char = charactersList.filter((c) => c.id == charID);
+  let char = charactersList.filter((c) => c.id == charID)[0];
 
-  if (char.length > 0) char = char[0];
   return {
-    props: { character: char }, // will be passed to the page component as props
+    props: { character: char },
   };
 }

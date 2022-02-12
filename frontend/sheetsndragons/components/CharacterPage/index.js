@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import Text from "../Text";
 
-import { GoBackIcon, PenIcon } from '../icons';
+import { GoBackIcon, PenIcon } from "../icons";
 
 const Container = styled.div`
   width: 100vw;
@@ -29,7 +29,7 @@ const Card = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media(max-width: 800px){
+  @media (max-width: 800px) {
     width: 90%;
   }
 `;
@@ -74,7 +74,7 @@ const GoBackBackContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 5px;
-`
+`;
 const EditButtonContainer = styled.div`
   position: absolute;
   top: 20px;
@@ -91,37 +91,47 @@ const EditButtonContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 5px;
-`
+`;
 
 const SpecContainer = styled.div`
   text-align: center;
   margin: 5px 0;
   width: 24%;
-  @media(max-width: 800px){
+  @media (max-width: 800px) {
     width: 48%;
   }
-`
+`;
 
 const CharacterPage = ({ character }) => {
   const [editMode, setEditMode] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
 
   const handleGoBack = () => {
-    router.push('/home')
-  }
+    router.push("/home");
+  };
+
   const handleEdit = () => {
-    setEditMode(!editMode)
+    setEditMode(!editMode);
+  };
+
+  
+  if (router.isFallback) {
+    return <div>Loading...</div>
   }
 
   return (
     <Container>
-    <GoBackBackContainer>
-      <a onClick={handleGoBack}><GoBackIcon size={30} color='black' /></a>
-    </GoBackBackContainer>
+      <GoBackBackContainer>
+        <a onClick={handleGoBack}>
+          <GoBackIcon size={30} color="black" />
+        </a>
+      </GoBackBackContainer>
 
-    <EditButtonContainer>
-      <a onClick={handleEdit}><PenIcon size={30} color='black' /></a>
-    </EditButtonContainer>
+      <EditButtonContainer>
+        <a onClick={handleEdit}>
+          <PenIcon size={30} color="black" />
+        </a>
+      </EditButtonContainer>
       <Card>
         <Header>
           <Text>Personagem</Text>
@@ -129,11 +139,11 @@ const CharacterPage = ({ character }) => {
         <Body>
           <NameContainer>
             <Text>Nome</Text>
-            {character.name}
+            {character.name || ""}
           </NameContainer>
           <SpeciesContainer>
             <Text>Especie</Text>
-            {character.species}
+            {character.species || ""}
           </SpeciesContainer>
         </Body>
       </Card>
