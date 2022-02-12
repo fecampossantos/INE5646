@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import Text from '../Text'
-import Button from '../Button'
+import Text from "../Text";
+import Button from "../Button";
 import FileInput from "../FileInput";
+
 
 const Container = styled.div`
   border-radius: 10px;
@@ -29,7 +30,7 @@ const Body = styled.div`
   justify-content: space-around;
   padding: 15px 20px;
 
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     flex-direction: column;
   }
 `;
@@ -51,20 +52,22 @@ const RightContent = styled.div`
 
 const RegisterCharacter = () => {
 
-  const handleDownloadPDF = () => {
-    console.log('downloading pdf')
-  }
-
   const handleHowToFill = () => {
-    console.log('how to fill pdf')
-  }
+    console.log("how to fill pdf");
+  };
   return (
     <Container>
       <Header>Cadastrar personagem</Header>
       <Body>
         <LeftContent>
           <Text>Baixar PDF padrao</Text>
-          <Button onClick={handleDownloadPDF}>Baixar</Button>
+          {/* <Button onClick={handleDownloadPDF}>Baixar</Button> */}
+          <Button>
+            <a href={'sample_pdf.pdf'} download="PDF">
+              Download
+            </a>
+          </Button>
+
           <Text>Como preencher</Text>
           <Button onClick={handleHowToFill}>Abrir</Button>
         </LeftContent>
