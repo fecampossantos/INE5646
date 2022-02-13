@@ -17,9 +17,18 @@ const Bar = styled.div`
   flex-direction: row;
   padding: 5px 20px;
   align-items: center;
+  justify-content: flex-end;
 
   @media(max-width: 700px){
     height: 3em;
+  }
+
+  a,
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: none;
+    color: inherit;
   }
 `;
 

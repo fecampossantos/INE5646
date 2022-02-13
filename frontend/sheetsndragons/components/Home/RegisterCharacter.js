@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Text from "../Text";
 import Button from "../Button";
 import FileInput from "../FileInput";
-
 
 const Container = styled.div`
   border-radius: 10px;
@@ -41,6 +40,14 @@ const LeftContent = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
+
+  a,
+  a:hover,
+  a:focus,
+  a:active {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 const RightContent = styled.div`
   display: flex;
@@ -50,20 +57,69 @@ const RightContent = styled.div`
   height: 100%;
 `;
 
-const RegisterCharacter = () => {
+const Modal = styled.div`
+  visibility: ${(props) => (props.visible ? "visible" : "hidden")};
 
-  const handleHowToFill = () => {
-    console.log("how to fill pdf");
-  };
+  z-index: 3;
+  position: absolute;
+  width: 50%;
+  height: auto;
+  top: 20%;
+  left: 20%;
+
+  background-color: #e4a76e;
+  border-radius: 10px;
+
+  @media(max-width: 700px){
+    left: 10%;
+    width: 80%;
+
+  }
+`;
+
+const ModalHeader = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const ModalBody = styled.div`
+  width: auto;
+  background-color: white;
+  border-radius: 10px;
+  margin: 20px;
+
+  padding: 20px;
+`;
+
+const CloseButton = styled.div`
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+`;
+
+const RegisterCharacter = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleHowToFill = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
+
   return (
     <Container>
       <Header>Cadastrar personagem</Header>
       <Body>
         <LeftContent>
           <Text>Baixar PDF padrao</Text>
-          {/* <Button onClick={handleDownloadPDF}>Baixar</Button> */}
           <Button>
-            <a href={'sample_pdf.pdf'} download="PDF">
+            <a href={"sample_pdf.pdf"} download="PDF" style={{width: '100%'}}>
               Download
             </a>
           </Button>
@@ -76,6 +132,22 @@ const RegisterCharacter = () => {
           <FileInput accept={".pdf"} />
         </RightContent>
       </Body>
+
+      <Modal visible={showModal}>
+        <ModalHeader>
+          Como preencher
+          <CloseButton onClick={closeModal}>X</CloseButton>
+        </ModalHeader>
+
+        <ModalBody>
+          1. Faça o download do PDF padrão
+          <br />
+          2. Preencha ele com todas as informações do seu personagem que deseja
+          cadastrar
+          <br />
+          3. Faça upload do pdf no sistema.
+        </ModalBody>
+      </Modal>
     </Container>
   );
 };
