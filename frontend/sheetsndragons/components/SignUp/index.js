@@ -62,21 +62,19 @@ const SignUp = () => {
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-
   const handleLogin = () => {
-
-    if(!nome || !email || !password || !passConfirm) {
+    if (!nome || !email || !password || !passConfirm) {
       setHasError(true);
       setErrorMessage("Nenhum campo pode estar vazio");
-      return
+      return;
     }
-    
+
     let validEmail = validateEmail(email);
 
     if (!validEmail) {
       setHasError(true);
       setErrorMessage("O email nao esta no formato certo");
-      return
+      return;
     }
     console.log(passConfirm);
     if (password != passConfirm) {

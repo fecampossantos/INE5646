@@ -37,14 +37,10 @@ const NavItem = styled.div`
 `
 
 const NavBar = () => {
-
-  const handleLogout = () => {
-    router.push('/login')
-  }
   return(
   <Bar>
   <NavItem>
-    <Link href={'/login'} passHref>
+    <Link href={'/'} passHref>
       <a>logout</a>
     </Link>
   </NavItem>

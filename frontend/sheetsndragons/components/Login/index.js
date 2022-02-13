@@ -59,16 +59,22 @@ const Login = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [error, setError] = useState(false);
-  const [errorEmail, setErrorEmail] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    if(!email || !password) {
+      setError(true);
+      setErrorMessage("Nenhum campo pode estar vazio");
+      return
+    }
 
     let validEmail = validateEmail(email);
 
     if (!validEmail) {
       setError(true);
-      setErrorEmail(true);
+      setErrorMessage('O email nao esta no formato certo');
     } else {
       router.replace("/home");
     }
@@ -87,13 +93,13 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
           width="50%"
         />
-        {error && errorEmail && <Text>O email nao esta no formato certo</Text>}
         <PasswordInput
           id="passwordInput"
           label="Senha"
           onChange={(e) => setPassword(e.target.value)}
           width="50%"
         />
+        {error  && <Text>{errorMessage}</Text>}
         <Button backgroundColor="primary" onClick={handleLogin} width="50%">
           Entrar
         </Button>
