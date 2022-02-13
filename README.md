@@ -37,10 +37,20 @@ O sistema de jogo DnD é conhecido pela sua construção “manual”, onde os p
 Pessoas que joguem DnD e pessoas que tenham interesse em começar a jogar
 
 ### Rodando o projeto localmente
-_em breve_  
+No diretório _frontend_, instale as dependencias comÇ
+```
+yarn
+```
+(https://yarnpkg.com/)
+Após instalar as dependencias, basta rodar
+```
+yarn dev
+```
+no seu terminal, e o frontend ficara disponível em 
+http://localhost:3000/
 
 ### Link para visualização
-_em breve_
+https://sheetsndragons.vercel.app/
 
 # Como rodar o backend
 
