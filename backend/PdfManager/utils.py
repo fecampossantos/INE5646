@@ -10,7 +10,7 @@ WIDGET_SUBTYPE_KEY = '/Widget'
 
 class PdfManager:
 
-    def readPdf(file):
+    def readPdf(self, file):
         pdfFileReader = PdfFileReader(file)
         # dict de campos do pdf
         pdf_fields = pdfFileReader.getFields()
@@ -28,7 +28,7 @@ class PdfManager:
         file.close()
         return char_info
 
-    def writePdf(data_dict):
+    def writePdf(self, data_dict):
         template_pdf = pdfrw.PdfReader('default_sheet.pdf')
         for page in template_pdf.pages:
             annotations = page[ANNOT_KEY]
