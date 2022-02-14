@@ -10,5 +10,5 @@ class RegisterView(CreateAPIView):
     View que usa template genérico do django_rest_framework para criar um usuário
     """
     queryset = User.objects.all()
-    permission_classes = (AllowAny,) # qualquer pessoa pode chamar esse endpoint
+    permission_classes = (AllowAny,)  # qualquer pessoa pode chamar esse endpoint
     serializer_class = RegisterSerializer
