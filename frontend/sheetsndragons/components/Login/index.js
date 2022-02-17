@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import EmailInput from "components/EmailInput";
+import TextInput from "../TextInput";
 import PasswordInput from "components/PasswordInput";
 import Button from "components/Button";
 import { useRouter } from "next/router";
 import Text from "../Text";
 
 import { validateEmail } from "../../helpes/utils";
+
+import api from "../../api";
 
 const FlexContainer = styled.section`
   width: 100vw;
@@ -56,27 +58,28 @@ const LoginContainer = styled.div`
 
 const Login = () => {
   const router = useRouter();
-  const [email, setEmail] = useState(null);
+  const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
   const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    if(!email || !password) {
+    if (!username || !password) {
       setError(true);
       setErrorMessage("Nenhum campo pode estar vazio");
-      return
+      return;
     }
 
-    let validEmail = validateEmail(email);
-
-    if (!validEmail) {
-      setError(true);
-      setErrorMessage('O email nao esta no formato certo');
-    } else {
+    try {
+      // const { data } = await api().auth({ username, password });
+      // add token to store and cookie
+      // const token = data.token
       router.replace("/home");
+    } catch (e) {
+      setError(true);
+      setErrorMessage("Usuario ou senha incorretos.");
     }
   };
 
@@ -87,10 +90,10 @@ const Login = () => {
       </ImageContainer>
 
       <LoginContainer>
-        <EmailInput
-          id="emailInput"
-          label="Email"
-          onChange={(e) => setEmail(e.target.value)}
+        <TextInput
+          id="usernameInput"
+          label="Username"
+          onChange={(e) => setUsername(e.target.value)}
           width="50%"
         />
         <PasswordInput
@@ -99,7 +102,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           width="50%"
         />
-        {error  && <Text>{errorMessage}</Text>}
+        {error && <Text>{errorMessage}</Text>}
         <Button backgroundColor="primary" onClick={handleLogin} width="50%">
           Entrar
         </Button>
