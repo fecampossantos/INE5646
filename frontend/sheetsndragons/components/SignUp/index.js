@@ -9,6 +9,8 @@ import Text from "../Text";
 
 import { validateEmail } from "../../helpes/utils";
 
+import api from "../../api";
+
 const FlexContainer = styled.section`
   width: 100vw;
   height: 100vh;
@@ -62,7 +64,7 @@ const SignUp = () => {
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!nome || !email || !password || !passConfirm) {
       setHasError(true);
       setErrorMessage("Nenhum campo pode estar vazio");
@@ -84,12 +86,22 @@ const SignUp = () => {
     }
 
     const params = {
-      email,
+      username,
       password,
-      nome,
+      password2: passConfirm,
+      email,
+      // first_name: name,
+      // last_name: surname
     };
 
-    console.log(params);
+    try {
+      // const { data } = await api().users.create(params);
+      // const token = data.token;
+    } catch (e) {
+      setHasError(true);
+      setErrorMessage("Algo aconteceu de errado. Tente novamente.");
+    }
+
     router.push("/home");
   };
 
