@@ -56,16 +56,23 @@ const LoginContainer = styled.div`
   }
 `;
 
+const SideBySide = styled.div`
+  display: flex;
+`;
+
 const SignUp = () => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
-  const [nome, setNome] = useState(null);
+  const [name, setName] = useState(null);
+  const [surname, setSurname] = useState(null);
+  const [username, setUsername] = useState(null);
   const [passConfirm, setPassConfirm] = useState(null);
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+
   const handleLogin = async () => {
-    if (!nome || !email || !password || !passConfirm) {
+    if (!name || !surname || !username || !email || !password || !passConfirm) {
       setHasError(true);
       setErrorMessage("Nenhum campo pode estar vazio");
       return;
@@ -78,7 +85,7 @@ const SignUp = () => {
       setErrorMessage("O email nao esta no formato certo");
       return;
     }
-    console.log(passConfirm);
+
     if (password != passConfirm) {
       setHasError(true);
       setErrorMessage("As senhas estão diferentes");
@@ -90,48 +97,65 @@ const SignUp = () => {
       password,
       password2: passConfirm,
       email,
-      // first_name: name,
-      // last_name: surname
+      first_name: name,
+      last_name: surname
     };
 
     try {
       // const { data } = await api().users.create(params);
       // const token = data.token;
+      router.push("/home");
     } catch (e) {
       setHasError(true);
       setErrorMessage("Algo aconteceu de errado. Tente novamente.");
     }
-
-    router.push("/home");
   };
 
   return (
     <FlexContainer>
       <LoginContainer>
-        <TextInput
-          id="textInput"
-          label="Nome"
-          onChange={(e) => setNome(e.target.value)}
-          width="50%"
-        />
-        <EmailInput
-          id="emailInput"
-          label="Email"
-          onChange={(e) => setEmail(e.target.value)}
-          width="50%"
-        />
-        <PasswordInput
-          id="passwordInput"
-          label="Senha"
-          onChange={(e) => setPassword(e.target.value)}
-          width="50%"
-        />
-        <PasswordInput
-          id="password2Input"
-          label="Confirmar senha"
-          onChange={(e) => setPassConfirm(e.target.value)}
-          width="50%"
-        />
+        <SideBySide>
+          <TextInput
+            id="textInput"
+            label="Nome"
+            onChange={(e) => setName(e.target.value)}
+            width="50%"
+          />
+          <TextInput
+            id="textInput"
+            label="Sobrenome"
+            onChange={(e) => setSurname(e.target.value)}
+            width="50%"
+          />
+        </SideBySide>
+        <SideBySide>
+          <TextInput
+            id="textInput"
+            label="Username"
+            onChange={(e) => setUsername(e.target.value)}
+            width="50%"
+          />
+          <EmailInput
+            id="emailInput"
+            label="Email"
+            onChange={(e) => setEmail(e.target.value)}
+            width="50%"
+          />
+        </SideBySide>
+        <SideBySide>
+          <PasswordInput
+            id="passwordInput"
+            label="Senha"
+            onChange={(e) => setPassword(e.target.value)}
+            width="50%"
+          />
+          <PasswordInput
+            id="password2Input"
+            label="Confirmar senha"
+            onChange={(e) => setPassConfirm(e.target.value)}
+            width="50%"
+          />
+        </SideBySide>
         {hasError && <Text>{errorMessage}</Text>}
         <Button backgroundColor="primary" onClick={handleLogin} width="50%">
           Cadastrar
