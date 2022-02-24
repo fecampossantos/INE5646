@@ -10,6 +10,8 @@ import { validateEmail } from "../../helpes/utils";
 
 import api from "../../api";
 
+import axios from "axios";
+
 const FlexContainer = styled.section`
   width: 100vw;
   height: 100vh;
@@ -73,9 +75,9 @@ const Login = () => {
     }
 
     try {
-      // const { data } = await api().auth({ username, password });
-      // add token to store and cookie
-      // const token = data.token
+      // const res = api().auth.signin({username, password})
+      const res = await axios.get('http://localhost:8000/api-token-auth', {username, password})
+      console.log(res)
       router.replace("/home");
     } catch (e) {
       setError(true);
