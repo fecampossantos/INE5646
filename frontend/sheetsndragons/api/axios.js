@@ -1,7 +1,6 @@
 import axios from "axios";
 
-
-const configAxios = token => {
+export default token => {
 
   const baseUrl = 'http://localhost:8000';
 
@@ -14,5 +13,3 @@ const configAxios = token => {
 
   return axios.create(configParams)
 }
-
-export default configAxios

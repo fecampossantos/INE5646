@@ -11,6 +11,8 @@ import { validateEmail } from "../../helpes/utils";
 
 import api from "../../api";
 
+import axios from "axios";
+
 const FlexContainer = styled.section`
   width: 100vw;
   height: 100vh;
@@ -103,12 +105,14 @@ const SignUp = () => {
     };
 
     try {
-      // const { data } = await api().users.create(params);
-      // const token = data.token;
-      router.push("/home");
+      // const res = await api().users.createUser(params);
+      const res = await axios.get('http://localhost:8000/user/register', params)
+      console.log(res)
+      // router.push("/home");
     } catch (e) {
       setHasError(true);
       setErrorMessage("Algo aconteceu de errado. Tente novamente.");
+      console.log(e)
     }
   };
 

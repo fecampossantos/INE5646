@@ -14,6 +14,7 @@ class PdfManager:
         pdfFileReader = PdfFileReader(file)
         # dict de campos do pdf
         pdf_fields = pdfFileReader.getFields()
+        print(pdf_fields.items())
         # infos do personagem
         char_info = {}
         for field_name in pdf_fields:
@@ -49,7 +50,8 @@ class PdfManager:
         template_pdf.Root.AcroForm.update(pdfrw.PdfDict(NeedAppearances=pdfrw.PdfObject('true')))
         pdfrw.PdfWriter().write('output.pdf', template_pdf)
 
-# if __name__ == '__main__':
-#     file = open('example_filled_sheet.pdf', 'rb')
-#     char_info = PdfManager.readPdf(file)
-#     PdfManager.writePdf(char_info)
+if __name__ == '__main__':
+    file = open('example_filled_sheet.pdf', 'rb')
+    pdf = PdfManager()
+    char_info = pdf.readPdf(file)
+    PdfManager.writePdf(char_info)
