@@ -4,6 +4,7 @@ click==8.0.3
 Deprecated==1.2.13
 distro==1.6.0
 Django==4.0.2
+django-cors-headers==3.11.0
 djangorestframework==3.13.1
 Flask==2.0.2
 itsdangerous==2.0.1

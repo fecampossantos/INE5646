@@ -1,7 +1,7 @@
 # Como rodar o backend
 
 ### Criando um ambiente virtual
-No diretório base do projeto crie um ambiente virtual pelo terminal com o seguinte:
+No primeiro diretório ```backend``` do projeto crie um ambiente virtual pelo terminal com o seguinte:
 ```
 python3 -m venv venv
 ```
