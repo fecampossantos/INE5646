@@ -1,2 +1,12 @@
 venv/
 .idea/
+frontend/sheetsndragons/yarn.lock
+frontend/sheetsndragons/package-lock.json
+backend/venv/
+backend/db.sqlite3
+backend/.idea/
+backend/backend/__pycache__/
+backend/example/__pycache__/
+backend/example/migrations/
+backend/user_management/__pycache__/
+backend/user_management/migrations/

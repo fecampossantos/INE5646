@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'user_management',
     'example',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -131,3 +133,11 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
 }
+
+# permite que qualquer site faça requests para esse. Nunca usar para APIs que n devem ser publicas. Pro nosso trabalho
+# tanto faz
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOWED_ORIGINS = (
+  'http://localhost:8000',
+  'http://localhost:3000',
+)
