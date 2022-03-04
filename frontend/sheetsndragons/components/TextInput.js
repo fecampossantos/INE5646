@@ -20,7 +20,7 @@ const Input = styled.input`
   }
 `
 
-const TextInput = ({ id, label, onChange, width }) => {
+const TextInput = ({ id, label, onChange, width, pattern }) => {
   return (
     <Wrapper width={width}>
       <label htmlFor={id}>{label}</label><br />

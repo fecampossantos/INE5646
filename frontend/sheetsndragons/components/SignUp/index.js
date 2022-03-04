@@ -70,8 +70,9 @@ const SignUp = () => {
   const [hasError, setHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-
   const handleLogin = async () => {
+    if(hasError) return 
+
     if (!name || !surname || !username || !email || !password || !passConfirm) {
       setHasError(true);
       setErrorMessage("Nenhum campo pode estar vazio");
@@ -98,7 +99,7 @@ const SignUp = () => {
       password2: passConfirm,
       email,
       first_name: name,
-      last_name: surname
+      last_name: surname,
     };
 
     try {
@@ -111,6 +112,32 @@ const SignUp = () => {
     }
   };
 
+  function hasNumber(string) {
+    const rslt = string.match(/[0-9]+/gi)
+    if(!rslt) return false
+    return true
+  }
+
+  const handleNameInput = (value) => {
+    if (!hasNumber(value)) {
+      setName(value);
+      setHasError(false);
+    } else {
+      setHasError(true);
+      setErrorMessage("O nome nao pode conter numeros");
+    }
+  };
+
+  const handleSurnameInput = (value) => {
+    if (!hasNumber(value)) {
+      setName(value);
+      setHasError(false);
+    } else {
+      setHasError(true);
+      setErrorMessage("O nome nao pode conter numeros");
+    }
+  };
+
   return (
     <FlexContainer>
       <LoginContainer>
@@ -118,13 +145,13 @@ const SignUp = () => {
           <TextInput
             id="textInput"
             label="Nome"
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => handleNameInput(e.target.value)}
             width="50%"
           />
           <TextInput
             id="textInput"
             label="Sobrenome"
-            onChange={(e) => setSurname(e.target.value)}
+            onChange={(e) => handleSurnameInput(e.target.value)}
             width="50%"
           />
         </SideBySide>
