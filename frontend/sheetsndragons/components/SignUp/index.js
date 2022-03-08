@@ -106,7 +106,7 @@ const SignUp = () => {
 
     try {
       // const res = await api().users.createUser(params);
-      const res = await axios.get('http://localhost:8000/user/register', params)
+      const res = await axios.post('http://localhost:8000/user/register/', params)
       console.log(res)
       // router.push("/home");
     } catch (e) {
@@ -134,7 +134,7 @@ const SignUp = () => {
 
   const handleSurnameInput = (value) => {
     if (!hasNumber(value)) {
-      setName(value);
+      setSurname(value);
       setHasError(false);
     } else {
       setHasError(true);
